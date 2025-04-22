@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>My Assignments</h1>
+<u1 class="list-group">
+    {% for assignment in assignments %}
+     <li class="list-group-item d-flex justified-content-between align-items-center">
+         <div>
+             <strong>{{  assignment.title  }}</strong>
+             <small>{{  assignment.description  }}</small>
+         </div>
+         <a href="{{ url_for('submit_assignment', assignment_id=assignment.id)  }}" class="btn btn-primary btn-sm">Submit</a>
+     </li>
+    {% endfor %}
+</u1>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Submit Assignment: {{  assignment.title  }}</h1>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div>
+        {{  form.content.label  }}
+        {{  form.content(row=6, class='form-control')  }}
+    </div>
+    <div class="mt-3">
+        {{  form.submit(class="btn btn-primary")  }}
+    </div>
+</form>
+    {% if submission and submission.feedback %}
+         <div class="alert alert-info mt-4">
+             <strong>Professor Feedback:</strong>
+             {{  submission.feedback  }}
+         </div>
+    {% endif %}
+{% endblock %}
