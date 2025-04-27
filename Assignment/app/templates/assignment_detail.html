@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ assignment.title }}</h1>
+
+    <div class="mb-3">
+        <strong>Description:</strong>
+        <p>{{ assignment.description }}</p>
+    </div>
+
+    <div class="mb-3">
+        <strong>Deadline:</strong>
+        <p>{{ assignment.deadline.strftime('%d/%m/%Y %H:%M') }}</p> {# 英式日期格式 #}
+    </div>
+
+    <div class="mb-3">
+        <strong>Professor:</strong>
+        <p>{{ assignment.professor.username }}</p>
+    </div>
+    {% if current_user.is_authenticated and current_user.id == assignment.professor_id %}
+        <a class="btn btn-warning mb-3" href="{{ url_for('edit_assignment', assignment_id=assignment.id) }}">
+            Edit Assignment
+        </a>
+    {% endif %}
+    <br>
+    <a class="btn btn-secondary" href="{{ url_for('assignments') }}">Back to List</a>
+</div>
+{% endblock %}
