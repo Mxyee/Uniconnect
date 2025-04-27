@@ -94,6 +94,7 @@ def edit_assignment(assignment_id):
     if not assignment:
         flash('Assignment not found.', 'danger')
         return redirect(url_for('assignments'))
+
     # only the owner professor can edit this assignment
     if assignment.professor_id != current_user.id:
         flash('You do not have permission to edit this assignment.', 'danger')
@@ -107,6 +108,24 @@ def edit_assignment(assignment_id):
         flash('Assignment updated successfully!', 'success')
         return redirect(url_for('assignment', assignment_id=assignment.id))
     return render_template('generic_form.html', title='Edit Assignment', form=form)
+
+@app.route('/assignment/<int:assignment_id>/delete', methods=['POST'])
+@login_required
+def delete_assignment(assignment_id):
+    assignment = db.session.get(Assignment, assignment_id)
+    if not assignment:
+        flash('Assignment not found.', 'danger')
+        return redirect(url_for('assignments'))
+
+    # only the owner professor can delete
+    if current_user.role != 'professor' or assignment.professor_id != current_user.id:
+        flash('You do not have permission to delete this assignment.', 'danger')
+        return redirect(url_for('assignments'))
+
+    db.session.delete(assignment)
+    db.session.commit()
+    flash('Assignment deleted successfully!', 'success')
+    return redirect(url_for('assignments'))
 
 # Error handlers
 # See: https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
