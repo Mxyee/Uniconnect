@@ -53,6 +53,11 @@ def assignments():
     else:
         # for students, show all assignments
         q = db.select(Assignment)
+
+    # users can search for assignments
+    search = request.args.get('search')
+    if search:
+        q = q.where(Assignment.title.ilike(f"%{search}%"))
     assignments = db.session.scalars(q)
     return render_template('assignments.html', title="Assignments", assignments=assignments)
 

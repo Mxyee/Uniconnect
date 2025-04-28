@@ -9,6 +9,12 @@
     </a>
 </div>
 {% endif %}
+<form method="get" action="{{ url_for('assignments') }}" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="search" class="form-control" placeholder="Search assignments..." value="{{ request.args.get('search', '') }}">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </div>
+</form>
 <div class="col-lg-3">
 <table class="table">
     <thead>
