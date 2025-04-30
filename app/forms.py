@@ -20,8 +20,7 @@ class LoginForm(FlaskForm):
 
 class SubmissionForm(FlaskForm):
     content = TextAreaField('Your Answer', validators=[DataRequired(message='Answer cannot be empty.'),
-                                                       Length(min=10, message='Answer must be at least 10 characters long.'),
-                                                       Length(max=20, message='Answer should not longer than character.'),])
+                                                       Length(min=10, max=1000, message='Answer must be between 10 and 1000 characters.')])
     submit = SubmitField('Submit Assignment')
 
 class FeedbackForm(FlaskForm):
