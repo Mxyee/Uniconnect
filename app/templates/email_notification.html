@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Notification</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background-color: #f4f4f4;
+      padding: 40px;
+    }
+    .container {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 30px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    p {
+      font-size: 1rem;
+      color: #333333;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: #999999;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Hello {{ user.username }} </h2>
+    <p>{{ message }}</p>
+    <div class="footer">
+      This is an automated message.<br>
+      Please do not reply to this email.
+    </div>
+  </div>
+</body>
+</html>
