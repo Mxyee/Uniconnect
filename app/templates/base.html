@@ -25,24 +25,55 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="{{ url_for('home') }}">Home</a>
                 </li>
-            </ul>
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                {% if current_user.is_anonymous %}
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ url_for('login') }}">Login</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ url_for('logout') }}">Logout {{ current_user.username }}</a>
-                </li>
+                {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ url_for('assignments') }}">Assignment</a>
+                    </li>
                 {% endif %}
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ url_for('account') }}">Account</a>
+                    <a class="nav-link" aria-current="page" href="{{ url_for('activities') }}">Activities</a>
+                </li>
+            <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{ url_for('my_assignments') }}">My Assignments</a>
                 </li>
             </ul>
-{#            <a href="{{ url_for('notifications') }}">#}
-{#                🔔 通知 ({{ unread_count }})#}
-{#            </a>            #}
+            <ul class="navbar-nav gap-4 ms-auto">
+                {% if current_user.is_anonymous %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('student_register') }}">Student Register</a>
+                    </li>
+                {% else %}
+                    {% if current_user.role == 'admin' %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('professor_register') }}">
+                                Professor Register <i class="bi bi-mortarboard-fill"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('notifications') }}">
+                            🔔 Notifications
+                            {% if unread_count and unread_count > 0 %}
+                                ({{ unread_count }})
+                            {% endif %}
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('account') }}">Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Logout {{ current_user.username }}</a>
+                    </li>
+                {% endif %}
+            </ul>
+
+
+            </ul>
         </div>
     </div>
 </nav>
@@ -71,4 +102,3 @@
 
 </body>
 </html>
-
