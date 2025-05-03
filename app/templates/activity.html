@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <h1 class="mb-4">{{ activity.title }}</h1>
+    <div class="mb-4">
+        <p><strong>Description:</strong> {{ activity.description }}</p>
+        <p><strong>Date:</strong> {{ activity.date.strftime('%Y-%m-%d %H:%M') }}</p>
+        <p><strong>Location:</strong> {{ activity.location }}</p>
+    </div>
+    <h3 class="mt-5 mb-3">Participants ({{ activity.participants|length }}/5)</h3>
+    {% if activity.participants %}
+        <ul class="list-group mb-4">
+            {% for participant in activity.participants %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="d-flex flex-column">
+                        <strong>{{ participant.student.username }}</strong>
+                        <small class="text-muted">{{ participant.student.email }}</small>
+                    </div>
+                    {% if participant.student.id == activity.created_by %}
+                        <span class="badge bg-primary">Creator</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if current_user.is_authenticated %}
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.action }}
+            {% if not is_participant %}
+                <button type="submit" class="btn btn-success"
+                        onclick="document.getElementById('action_field').value='join'"
+                        {% if activity.participants|length >= 5 %}disabled{% endif %}>
+                    {% if activity.participants|length >= 5 %}
+                        Activity Full
+                    {% else %}
+                        Join Activity
+                    {% endif %}
+                </button>
+            {% elif is_participant %}
+                <button type="submit" class="btn btn-danger"
+                        onclick="document.getElementById('action_field').value='leave'"
+                        {% if not can_leave %}disabled{% endif %}>
+                        Leave Activity
+                </button>
+            {% endif %}
+        </form>
+    {% endif %}
+    {% if is_creator %}
+        <div class="mt-4">
+            <a href="{{ url_for('edit_activity', id=activity.id) }}" class="btn btn-secondary">Edit Activity</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

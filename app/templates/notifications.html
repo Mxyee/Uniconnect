@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% import "bootstrap_wtf.html" as wtf %}
+
+{% block content %}
+<h2>Your Notification</h2>
+<ul>
+  {% for n in notifications %}
+    <li>
+      {% if not n.is_read %}<strong>{% endif %}
+      <a href="{{ url_for('view_notification', id=n.id) }}">{{ n.message }}</a>
+      {% if not n.is_read %}</strong>{% endif %}
+      <small>(Received at {{ n.timestamp.strftime('%Y-%m-%d %H:%M') }})</small>
+    </li>
+  {% endfor %}
+</ul>
+<a href="{{ url_for('home') }}">Back to Home</a>
+
+
+{% endblock %}
