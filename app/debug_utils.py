@@ -1,6 +1,7 @@
 from app import db
-from app.models import User, Notification
-import datetime
+from app.models import User, Assignment, Submission, Activity, Participant, Notification
+from werkzeug.security import generate_password_hash
+from datetime import datetime
 
 def reset_db():
     db.drop_all()
@@ -22,43 +23,45 @@ def reset_db():
     db.session.add_all([prof1, prof2, stu1, stu2, stu3])
     db.session.commit()
 
-    # # Create assignments
-    # a1 = Assignment(title='Math Homework 1', description='Calculus problems', deadline='2025-05-10', professor_id=prof1.id)
-    # a2 = Assignment(title='Physics Lab', description='Submit lab report', deadline='2025-05-12', professor_id=prof2.id)
-    # a3 = Assignment(title='Programming Project', description='Build a Flask app', deadline='2025-05-15', professor_id=prof1.id)
-    #
-    # db.session.add_all([a1, a2, a3])
-    # db.session.commit()
-    #
-    # # Submissions
-    # s1 = Submission(assignment_id=a1.id, student_id=stu1.id, status='submitted', feedback='Good job!')
-    # s2 = Submission(assignment_id=a2.id, student_id=stu2.id, status='submitted', feedback='Please fix formatting.')
-    # s3 = Submission(assignment_id=a3.id, student_id=stu3.id, status='submitted', feedback='Excellent!')
-    #
-    # db.session.add_all([s1, s2, s3])
-    # db.session.commit()
-    #
-    # # Activities
-    # act1 = Activity(title='AI Study Group', description='Discuss ML topics', date='2025-04-25', location='Room 101', created_by=stu1.id)
-    # act2 = Activity(title='Startup Club Meetup', description='Pitch ideas and get feedback', date='2025-04-27', location='Library Hall', created_by=stu2.id)
-    #
-    # db.session.add_all([act1, act2])
-    # db.session.commit()
-    #
-    # # Participants
-    # db.session.add_all([
-    #     Participant(activity_id=act1.id, student_id=stu1.id),
-    #     Participant(activity_id=act1.id, student_id=stu3.id),
-    #     Participant(activity_id=act2.id, student_id=stu2.id)
-    # ])
-    # db.session.commit()
+    # Create assignments
+    a1 = Assignment(title='Math Homework 1', description='Calculus problems', deadline=datetime.strptime('2025-05-10', '%Y-%m-%d'), professor_id=prof1.id)
+    a2 = Assignment(title='Physics Lab', description='Submit lab report', deadline=datetime.strptime('2025-05-10', '%Y-%m-%d'), professor_id=prof2.id)
+    a3 = Assignment(title='Programming Project', description='Build a Flask app', deadline=datetime.strptime('2025-05-10', '%Y-%m-%d'), professor_id=prof1.id)
+    db.session.add_all([a1, a2, a3])
+    db.session.commit()
+
+    # Submissions
+    s1 = Submission(assignment_id=a1.id, student_id=stu1.id, status='submitted', feedback='Good job!')
+    s2 = Submission(assignment_id=a2.id, student_id=stu2.id, status='submitted', feedback='Please fix formatting.')
+    s3 = Submission(assignment_id=a3.id, student_id=stu3.id, status='submitted', feedback='Excellent!')
+
+    db.session.add_all([s1, s2, s3])
+    db.session.commit()
+
+    # Activities
+    act1 = Activity(title='AI Study Group', description='Discuss ML topics', date=datetime(2025, 4, 25, 15, 30),
+                    location='Room 101', created_by=stu1.id)
+    act2 = Activity(title='Startup Club Meetup', description='Pitch ideas and get feedback',
+                    date=datetime(2025, 4, 27, 10, 0), location='Library Hall', created_by=stu2.id)
+
+    db.session.add_all([act1, act2])
+    db.session.commit()
+
+    # Participants
+    db.session.add_all([
+        Participant(activity_id=act1.id, student_id=stu1.id),
+        Participant(activity_id=act1.id, student_id=stu3.id),
+        Participant(activity_id=act2.id, student_id=stu2.id)
+    ])
+    db.session.commit()
 
     # Notifications
-    # 原本date傳的是字串（str），不是 datetime.datetime，要把字串換成 datetime 物件
-    n1 = Notification(user_id=stu1.id, message='Assignment Math Homework 1 is due soon!', timestamp=datetime.datetime(2025, 4, 20, 16, 20))
-    n2 = Notification(user_id=stu3.id, message='You have joined AI Study Group.', timestamp=datetime.datetime(2025, 4, 22, 19, 0))
-    n3 = Notification(user_id=prof1.id, message='New submission received for Programming Project.', timestamp=datetime.datetime(2025, 4, 23, 23, 8))
-
+    n1 = Notification(user_id=stu1.id, message='Assignment Math Homework 1 is due soon!',
+                      timestamp=datetime(2025, 4, 20, 16, 20))
+    n2 = Notification(user_id=stu3.id, message='You have joined AI Study Group.',
+                      timestamp=datetime(2025, 4, 22, 19, 0))
+    n3 = Notification(user_id=prof1.id, message='New submission received for Programming Project.',
+                      timestamp=datetime(2025, 4, 23, 23, 8))
     db.session.add_all([n1, n2, n3])
     db.session.commit()
 
