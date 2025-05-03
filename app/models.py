@@ -7,13 +7,13 @@ from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import db, login
 from dataclasses import dataclass
-import datetime
+from datetime import datetime
 
 
 # User Table（Student,Professor、Admin）
 @dataclass
 class User(UserMixin, db.Model):
-    __tablename__ = 'users'
+    __tablename__ = 'user'
 
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     username: so.Mapped[str] = so.mapped_column(sa.String(64), unique=True, index=True)
@@ -36,6 +36,14 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f'User(id={self.id}, username={self.username}, role={self.role})'
 
+class Professor(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    department = db.Column(db.String(100), nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    user = db.relationship('User', backref='professor', uselist=False)
+
 @login.user_loader
 def load_user(id):
     return db.session.get(User, int(id))
@@ -48,8 +56,8 @@ class Assignment(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     title: so.Mapped[str] = so.mapped_column(sa.String(128))
     description: so.Mapped[str] = so.mapped_column(sa.Text)
-    deadline: so.Mapped[str] = so.mapped_column(sa.String(64))
-    professor_id: so.Mapped[int] = so.mapped_column(ForeignKey('users.id'))
+    deadline:so.Mapped[str]=so.mapped_column(sa.DateTime)
+    professor_id: so.Mapped[int] = so.mapped_column(ForeignKey('user.id'))
     professor: so.Mapped['User'] = relationship(back_populates='assignments')
 
     submissions: so.Mapped[List['Submission']] = relationship(back_populates='assignment', cascade='all, delete-orphan')
@@ -61,9 +69,11 @@ class Submission(db.Model):
 
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     assignment_id: so.Mapped[int] = so.mapped_column(ForeignKey('assignments.id'))
-    student_id: so.Mapped[int] = so.mapped_column(ForeignKey('users.id'))
+    student_id: so.Mapped[int] = so.mapped_column(ForeignKey('user.id'))
     status: so.Mapped[str] = so.mapped_column(sa.String(20))
+    content: so.Mapped[str] = so.mapped_column(sa.Text)
     feedback: so.Mapped[Optional[str]] = so.mapped_column(sa.Text)
+
 
     assignment: so.Mapped['Assignment'] = relationship(back_populates='submissions')
     student: so.Mapped['User'] = relationship(back_populates='submissions')
@@ -76,9 +86,10 @@ class Activity(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
     title: so.Mapped[str] = so.mapped_column(sa.String(128))
     description: so.Mapped[str] = so.mapped_column(sa.Text)
-    date: so.Mapped[str] = so.mapped_column(sa.String(64))
+    date: so.Mapped[datetime] = so.mapped_column(sa.DateTime)
     location: so.Mapped[str] = so.mapped_column(sa.String(128))
-    created_by: so.Mapped[int] = so.mapped_column(ForeignKey('users.id'))
+    created_by: so.Mapped[int] = so.mapped_column(ForeignKey('user.id'))
+    is_full_notified: so.Mapped[bool] = so.mapped_column(default=False)
 
     creator: so.Mapped['User'] = relationship(back_populates='activities_created')
     participants: so.Mapped[List['Participant']] = relationship(back_populates='activity', cascade='all, delete-orphan')
@@ -89,7 +100,7 @@ class Participant(db.Model):
     __tablename__ = 'participants'
 
     activity_id: so.Mapped[int] = so.mapped_column(ForeignKey('activities.id'), primary_key=True)
-    student_id: so.Mapped[int] = so.mapped_column(ForeignKey('users.id'), primary_key=True)
+    student_id: so.Mapped[int] = so.mapped_column(ForeignKey('user.id'), primary_key=True)
 
     activity: so.Mapped['Activity'] = relationship(back_populates='participants')
     student: so.Mapped['User'] = relationship(back_populates='participations')
@@ -100,8 +111,8 @@ class Notification(db.Model):
     __tablename__ = 'notifications'
 
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
-    user_id: so.Mapped[int] = so.mapped_column(ForeignKey('users.id'), nullable=False)
+    user_id: so.Mapped[int] = so.mapped_column(ForeignKey('user.id'), nullable=False)
     message: so.Mapped[str] = so.mapped_column(sa.Text, nullable=False)
     is_read: so.Mapped[bool] = so.mapped_column(default=False)
-    timestamp: so.Mapped[datetime.datetime] = so.mapped_column(default=datetime.datetime.now)
+    timestamp: so.Mapped[datetime] = so.mapped_column(default=datetime.now)
     user: so.Mapped[User] = relationship(back_populates='notifications')
