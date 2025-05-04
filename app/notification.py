@@ -37,4 +37,4 @@ def trigger_notification(event_type, **kwargs):
         notify(kwargs['user_id'], f"The activity '{kwargs['activity_title']}' has reached full capacity.")
 
     elif event_type == "activity_reminder":
-        notify(kwargs['user_id'], f"Reminder: The activity '{kwargs['activity_title']}' will start in 3 days.")
+        notify(kwargs['user_id'], f"Reminder: The activity '{kwargs['activity_title']}' will start at {kwargs['activity_date']}.")
