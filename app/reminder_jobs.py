@@ -11,6 +11,6 @@ def send_activity_reminders():
 
     for act in activities:
         if act.date.date() == target_date.date():
-            trigger_notification("activity_reminder", user_id=act.created_by, activity_title=act.title)
+            trigger_notification("activity_reminder", user_id=act.created_by, activity_title=act.title, activity_date=act.date.strftime('%Y-%m-%d %H:%M'))
             for p in act.participants:
-                trigger_notification("activity_reminder", user_id=p.student_id, activity_title=act.title)
+                trigger_notification("activity_reminder", user_id=p.student_id, activity_title=act.title, activity_date=act.date.strftime('%Y-%m-%d %H:%M'))
