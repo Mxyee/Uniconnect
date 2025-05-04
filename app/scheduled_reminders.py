@@ -8,7 +8,6 @@ def job():
         send_activity_reminders()
 
 scheduler = BackgroundScheduler(timezone=timezone.utc)
-scheduler.add_job(send_activity_reminders, 'interval', days=1)
+scheduler.add_job(job, 'interval', days=1)
 scheduler.start()
-
 print("Daily activity reminder scheduler is running.")
