@@ -12,10 +12,18 @@ def notify(user_id, message, send_email=True):
         try:
             user = User.query.get(user_id)
             if user and user.email:
-                msg = Message(subject="New Notification", recipients=[user.email],)
-                msg.body = message
-                msg.html = render_template('email_notification.html', user=user, message=message)
+                try:
+                    html = render_template('email_notification.html', user=user, message=message)
+                except Exception as e:
+                    print(f"[Template Error] Failed to render email for user_id={user_id}: {e}")
+                    html = None
+                msg = Message(subject="New Notification", recipients=[user.email], body=message)
+                if html:
+                    msg.html = html
                 mail.send(msg)
+                print(f"Email sent to {user.email}")
+            else:
+                print(f"[Notify] User {user_id} not found or has no email.")
         except Exception as e:
             print(f"[Mail Error] Failed to send email to user_id={user_id}:", e)
 
