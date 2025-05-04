@@ -59,7 +59,7 @@ def reset_db():
     db.session.commit()
 
     # Activities
-    act1 = Activity(title='AI Study Group', description='Discuss ML topics', date=datetime(2025, 5, 6, 15, 30), location='Room 101', created_by=stu1.id)
+    act1 = Activity(title='AI Study Group', description='Discuss ML topics', date=datetime(2025, 5, 1, 15, 30), location='Room 101', created_by=stu1.id)
     act2 = Activity(title='Startup Club Meetup', description='Pitch ideas and get feedback', date=datetime(2025, 5, 7, 10, 0), location='Library Hall', created_by=stu2.id)
 
     db.session.add_all([act1, act2])

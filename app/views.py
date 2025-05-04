@@ -234,6 +234,9 @@ def edit_activity(id):
     if current_user.id != activity.created_by:
         flash('You are not authorized to edit this activity.', 'danger')
         return redirect(url_for('activities'))
+    if activity.date < datetime.utcnow():
+        flash('You cannot edit a past activity.', 'warning')
+        return redirect(url_for('activity', id=activity.id))
     form = CreateActivityForm(obj=activity)
     if form.validate_on_submit():
         if form.location.data == 'Other' and not form.custom_location.data:
