@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-weight: bold;
+    color: #5cdde1;
+    text-shadow: 0 0 4px rgba(119, 227, 234, 0.3),
+                 0 0 8px rgba(119, 227, 234, 0.2);
+    animation: pulse 5s ease-in-out infinite;
+  }
+
+  .logo-left {
+    animation: slideInLeft 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  .logo-right {
+    animation: slideInRight 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.03);
+    }
+  }
+
+  .welcome-text {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+  }
+</style>
+
+<body style="margin: 0;">
+  <div style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    flex-direction: column;">
+
+    <!-- Logo Ensemble Animation -->
+    <div class="logo-container">
+      <div class="logo-left">Uni</div>
+      <div class="logo-right">Connect+</div>
+    </div>
+
+    <!-- Welcome -->
+    <div class="welcome-text">Welcome</div>
+
+  </div>
+</body>
+{% endblock %}

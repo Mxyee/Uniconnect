@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4"><i class="bi bi-envelope-open"></i> Notification Details</h2>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <p class="fs-5">{{ notification.message }}</p>
+            <p class="text-muted">Received at: {{ notification.timestamp.strftime('%Y-%m-%d %H:%M') }}</p>
+        </div>
+    </div>
+    <a href="{{ url_for('notifications') }}" class="btn btn-outline-secondary mt-3">
+        <i class="bi bi-arrow-left"></i> Back to Notifications
+    </a>
+</div>
+{% endblock %}
