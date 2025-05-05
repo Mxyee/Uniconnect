@@ -261,34 +261,34 @@
 
 ##### Positive
 **Scenario:** Student submits an assignment successfully.  
-- Navigate to an assignment detail page.  
-- Enter valid answer text.  
-- Click **Submit Assignment**.  
-- Expect: “Submission saved” message appears.
+1. Navigate to an assignment detail page.  
+2. Enter valid answer text.  
+3. Click **Submit Assignment**.  
+4. Expect: “Submission saved” message appears.
 
 ##### Negative
 **Scenario:** Student submits content that is too short.  
-- Enter a short answer (e.g., "short").  
-- Click **Submit Assignment**.  
-- Expect error: “Answer must be between 10 and 500 characters.”  
-- The page reloads without saving.
+1. Enter a short answer (e.g., "short").  
+2. Click **Submit Assignment**.  
+3. Expect error: “Answer must be between 10 and 500 characters.”  
+4. The page reloads without saving.
 
 #### Test Case Two – Student Update Submission
 
 ##### Positive
 **Scenario:** Student updates an existing submission.  
-- Click **Edit Submission**.  
-- Update the content with valid text.  
-- Click **Update Submission**.  
-- Expect message: “Submission updated successfully.”  
-- Content updated in both student and professor view.
+1. Click **Edit Submission**.  
+2. Update the content with valid text.  
+3. Click **Update Submission**.  
+4. Expect message: “Submission updated successfully.”  
+5. Content updated in both student and professor view.
 
 ##### Negative
 **Scenario:** Student updates with invalid content length.  
-- Edit submission and input a short response (e.g., "tiny").  
-- Click **Update Submission**.  
-- Expect error message: “Answer must be between 10 and 500 characters.”  
-- Page stays on the same form without saving.
+1. Edit submission and input a short response (e.g., "tiny").  
+2. Click **Update Submission**.  
+3. Expect error message: “Answer must be between 10 and 500 characters.”  
+4. Page stays on the same form without saving.
 ---
 ### Notifications:
 
