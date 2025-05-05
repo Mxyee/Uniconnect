@@ -128,7 +128,6 @@
 
 **Note:** Upon creation, the student is automatically registered as a participant of the activity.  
 
-
 #### 2. Student – Edit an Activity (Creator Only)
 
 1. On the **Activities** page, find the activity you created.  
@@ -138,7 +137,6 @@
 5. A success message will confirm the updates.  
 
 **Note:** You cannot edit activities that have already taken place.  
-
 
 #### 3. Student – Participate in an Activity
 
@@ -155,12 +153,10 @@
 - If the original creator leaves and there are still participants, the system will automatically assign the next participant in order as a new creator.  
 - If no participants remain, the activity will be automatically deleted.  
 
-
 #### 4. Professor
 
 1. Professors can view all activities, including details and participant lists.  
 2. However, professors **cannot create, join, edit, or leave** activities.
-
 
 #### Test Case One – Create Activity
 
@@ -178,7 +174,6 @@
 3. Form stays on the same page and shows an error:  
   **“The activity date must be at least 7 days from today.”**
 
-
 #### Test Case Two – Join Activity
 
 ##### – Positive
@@ -192,7 +187,6 @@
 1. Attempt to join an activity that already has 5 participants.  
 2. The **"Join Activity"** button is disabled and displays the text:  
   **“Activity Full”**
-
 
 #### Test Case Three – Leave Activity
 
@@ -292,6 +286,72 @@
 ---
 ### Notifications:
 
+#### System Notifications and Email Alerts:
+Each important user action triggers a system notification and email.
+Notifications are stored in the database and displayed in a dedicated Notifications page.
+
+#### 1. Student / Professor – View Notifications
+
+1. Click the **🔔 Notifications** icon in the navigation bar.
+2. The notification list page displays all received notifications.
+3. **Unread messages** are visually highlighted.
+4. The **unread count** appears as a badge next to the icon in the navbar.
+
+#### 2. Student / Professor – View Notification Details
+
+1. Click any notification message to open its **detail view**.
+2. Once opened, the notification is automatically **marked as read**.
+3. The unread count in the navbar is updated accordingly.
+
+#### 3. Student – Receive Notifications from the Following Events:
+
+1. **Create Activity**:
+  After creating an activity, the student receives a system notification and an email.
+2. **Join Activity**:
+  When joining an activity, the student receives a confirmation via notification and email.
+3. **Submit Assignment**:
+  A notification and email are sent immediately after a student submits an assignment.
+4. **Receive Feedback**:
+  When a professor gives feedback, the student receives a system notification and email.
+5. **Activity Full (5 Participants)**:
+  When an activity reaches full capacity, the **creator** is notified via both system and email.
+6. **Activity Reminder (3 Days Before)**:
+  Three days before the event, the system automatically sends a reminder to **both creator and all participants**.
+
+#### 4. Email Notifications
+
+1. All notifications are also sent via email using **Flask-Mail** and **Mailtrap**.
+2. Emails are sent in **HTML format** styled with a custom template.
+3. If HTML fails to render, the system will **automatically fall back to plain-text email** to ensure delivery.
+
+#### 5. Scheduler (Daily Reminders)
+
+1. A daily background task runs using **APScheduler**.
+2. This task checks for activities starting in 3 days and triggers reminders.
+3. In development, this job can be configured to run **every minute** for faster testing.
+
+#### 6. Security and Access Control
+
+1. Notification routes are protected with `@login_required`.
+2. If an unauthenticated user tries to access `/notifications`, they are redirected to the login page.
+3. This ensures that **only authorized users can view their personal notifications**.
+
+#### Test Case
+
+##### – Positive – Automatic Activity Reminder (Notification + Email)
+
+**Scenario:** An activity is scheduled to start exactly 3 days from today. When the daily scheduler runs, the system automatically sends a reminder to both the activity creator and all participants.
+1. All users receive an in-system notification like:  
+  "Reminder: The activity 'AI Study Group' will start at 2025-05-07 15:30."
+2. All users receive an HTML email with the same content
+3. Notifications are marked as unreadvv
+
+##### – Negative – Unauthenticated User Accesses Notification Pages
+**Scenario:** A user who is not logged in tries to access /notifications directly via URL.
+1. The system should redirect the user to the login page.
+2. No notifications should be shown.
+3. No new Notification records or emails should be generated.
+---
 ## Implemented Functionalities
 
 ### Login and Register:
@@ -313,7 +373,6 @@
 12. The system distinguishes login types between **Student** and **Professor**.
 ---
 ### Activity Features:
-
 1. Students can create activities.  
 2. The activity creator can edit the activity.  
 3. If the creator leaves the activity, the next participant automatically becomes the new creator.  
@@ -339,9 +398,21 @@
 10. The answer must be between 10 to 500 characters.
 ---
 ### Notification Features:
-
-
-
+1. Trigger Events (Create and join an activity, submit an assignment, activity reaches full capacity, feedback given, and 3-Day reminder)
+2. Students and professors can view all notifications from the navbar "🔔 Notifications".
+3. Unread notifications are highlighted.
+4. Clicking on a notification redirects to a detail page and automatically marks it as read.
+5. Navbar also displays the number of unread messages.
+6. Emails are sent through Mailtrap using Flask-Mail.
+7. All notification messages are sent as both plain text and styled HTML using a custom template.
+8. If HTML email fails to render, the system falls back to plain text email to avoid failure.
+9. APScheduler runs a daily job that automatically checks for activities starting in 3 days.
+10. Sends reminders to all related users.
+11. In development, it can be switched to run every minute for testing.
+12. Notifications pages are protected with @login_required.
+13. If a user tries to access notifications without logging in, they are redirected to the login page.
+14. Notification logic is separated via trigger_notification() for easy extension and testing.
+---
 ## Contribution table
 | Student Name & ID      | Contribution (%) | Key Contributions / Tasks Completed                                        | Signature     |
 |------------------------|------------------|-----------------------------------------------------------------------------|---------------|
