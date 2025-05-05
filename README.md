@@ -337,6 +337,9 @@
 8. Students can view professor feedback directly on the assignment detail page.
 9. Professors can only edit their own assignments and cannot modify others’ assignments.
 10. The answer must be between 10 to 500 characters.
+---
+### Notification Features:
+
 
 
 ## Contribution table
