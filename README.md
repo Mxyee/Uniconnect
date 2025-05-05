@@ -14,8 +14,8 @@
 - APScheduler
 ## Step by step instruction
 
-# Register
-## Student – Register  
+### Register
+#### Student – Register  
 Click on the **Student Register** button.  
 Students fill in their **username**, **email**, **password**, and **confirm password**.  
 Click on the **Register** button.  
@@ -27,7 +27,7 @@ System checks for duplicate **username or email**.
  - Otherwise, the student's account is created.  
 Redirects to the **Login** page.
 
-## Professor – Register (Admin only)  
+#### Professor – Register (Admin only)  
 Admin logs in.  
 Click on the **Professor Register** button.  
 Admin fills in the professor's **username**, **email**, **password**, and **confirm password**.  
@@ -39,16 +39,16 @@ System checks for duplicate **username or email**.
  - Otherwise, the professor's account is created.  
 Redirects to the **Login** page.
 
-# Login
+### Login
 
-## Student – Login  
+#### Student – Login  
 Enter **username** and **password**.  
 Click **Login**.  
 - After successful login: navigate to the **Home** page.  
 - Failed login:  
  **An error message is displayed (wrong account or password).**
 
-## Professor – Login  
+#### Professor – Login  
 The professor account is created by **Admin** in advance.  
 The **username** and **default password** are provided to the professor.  
 Professor enters the username and default password.  
@@ -163,16 +163,16 @@ Click **Login**.
 2. However, professors **cannot create, join, edit, or leave** activities.
 
 
-### Test Case One – Create Activity
+#### Test Case One – Create Activity
 
-#### Positive
+##### Positive
 **Scenario:** A student logs in and wants to organise a new study event.  
 - Students create an activity with a valid date (e.g., 7 days from today).  
 - Fill in all required fields.  
 - Click **"Create Activity"**.  
 - Redirects to the activity list page with a success message displayed.
 
-#### Negative
+##### Negative
 **Scenario:** A student tries to create an activity without meeting the date requirement.  
 - Attempt to create an activity using today’s date.  
 - Click **"Create Activity"**.  
@@ -180,30 +180,30 @@ Click **Login**.
   **“The activity date must be at least 7 days from today.”**
 
 
-### Test Case Two – Join Activity
+#### Test Case Two – Join Activity
 
-#### Positive
+##### Positive
 **Scenario:** A student wants to join a group event that is still open.  
 - Navigate to an activity that has available spots.  
 - Click **"Join Activity"**.  
 - Successfully joins and page refreshes, showing your name in the participant list.
 
-#### Negative
+##### Negative
 **Scenario:** A student tries to join a full activity.  
 - Attempt to join an activity that already has 5 participants.  
 - The **"Join Activity"** button is disabled and displays the text:  
   **“Activity Full”**
 
 
-### Test Case Three – Leave Activity
+#### Test Case Three – Leave Activity
 
-#### Positive
+##### Positive
 **Scenario:** A student decides to leave an activity before the start date.  
 - Open an activity scheduled to start in 7 days.  
 - Click **"Leave"**.  
 - Successfully leaves with a confirmation message.
 
-#### Negative
+##### Negative
 **Scenario:** A student attempts to leave too close to the start of the activity.  
 - Attempt to leave an activity starting in 3 days.  
 - The **"Leave Activity"** button is disabled.
