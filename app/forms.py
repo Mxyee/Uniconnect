@@ -177,6 +177,7 @@ class CreateActivityForm(FlaskForm):
         if input_date < today + timedelta(days=7):
             raise ValidationError('The activity date must be at least 7 days from today.')
 
+
 class JoinLeaveActivityForm(FlaskForm):
     action = HiddenField('Action', id='action_field', validators=[DataRequired()])
     submit = SubmitField('Submit')
