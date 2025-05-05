@@ -165,14 +165,14 @@ Click **Login**.
 
 #### Test Case One – Create Activity
 
-##### Positive
+##### – Positive
 **Scenario:** A student logs in and wants to organise a new study event.  
 1. Students create an activity with a valid date (e.g., 7 days from today).  
 2. Fill in all required fields.  
 3. Click **"Create Activity"**.  
 4. Redirects to the activity list page with a success message displayed.
 
-##### Negative
+##### – Negative
 **Scenario:** A student tries to create an activity without meeting the date requirement.  
 1. Attempt to create an activity using today’s date.  
 2. Click **"Create Activity"**.  
@@ -182,13 +182,13 @@ Click **Login**.
 
 #### Test Case Two – Join Activity
 
-##### Positive
+##### – Positive
 **Scenario:** A student wants to join a group event that is still open.  
 1. Navigate to an activity that has available spots.  
 2. Click **"Join Activity"**.  
 3. Successfully joins and page refreshes, showing your name in the participant list.
 
-##### Negative
+##### – Negative
 **Scenario:** A student tries to join a full activity.  
 1. Attempt to join an activity that already has 5 participants.  
 2. The **"Join Activity"** button is disabled and displays the text:  
@@ -197,13 +197,13 @@ Click **Login**.
 
 #### Test Case Three – Leave Activity
 
-##### Positive
+##### – Positive
 **Scenario:** A student decides to leave an activity before the start date.  
 1. Open an activity scheduled to start in 7 days.  
 2. Click **"Leave"**.  
 3. Successfully leaves with a confirmation message.
 
-##### Negative
+##### – Negative
 **Scenario:** A student attempts to leave too close to the start of the activity.  
 1. Attempt to leave an activity starting in 3 days.  
 2. The **"Leave Activity"** button is disabled.
