@@ -57,25 +57,6 @@ Click **Login**.
 - Login failed: error message displayed:  
  **“Incorrect account or password.”**
 
-#### Implemented Login and Register
-
-- Students can register their own accounts via the **Student Register** page.  
-- The system validates duplicate **username** and **email** during registration.  
-- Password confirmation is required and must match the original password.  
-- Passwords must meet the policy requirements:  
- • Minimum 8 characters  
- • At least one uppercase letter  
- • At least one lowercase letter  
- • At least one number  
-- On successful registration, students are redirected to the **Login** page.  
-- Admins can create professor accounts via the **Professor Register** page.  
-- Professors cannot register themselves; accounts are provided by **Admin**.  
-- Both students and professors can log in using their assigned credentials.  
-- Login process validates **username** and **password**.  
-- Invalid login attempts display clear error messages and do not proceed.  
-- Successful login redirects to the **Home** page.  
-- The system distinguishes login types between **Student** and **Professor**.
-
 #### Test Case One – Registers and Login
 
 ##### – Positive  
@@ -229,6 +210,27 @@ Click **Login**.
 
 ---
 ## Implemented Functionalities
+
+#### Implemented Login and Register
+
+1. Students can register their own accounts via the **Student Register** page.  
+2. The system validates duplicate **username** and **email** during registration.  
+3. Password confirmation is required and must match the original password.  
+4. Passwords must meet the policy requirements:  
+ - Minimum 8 characters  
+ - At least one uppercase letter  
+ - At least one lowercase letter  
+ - At least one number  
+5. On successful registration, students are redirected to the **Login** page.  
+6. Admins can create professor accounts via the **Professor Register** page.  
+7. Professors cannot register themselves; accounts are provided by **Admin**.  
+8. Both students and professors can log in using their assigned credentials.  
+9. Login process validates **username** and **password**.  
+10. Invalid login attempts display clear error messages and do not proceed.  
+11. Successful login redirects to the **Home** page.  
+12. The system distinguishes login types between **Student** and **Professor**.
+
+---
 
 ### Activity Features:
 
