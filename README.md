@@ -259,14 +259,14 @@
 
 #### Test Case One – Student Submit Assignment
 
-##### Positive
+##### - Positive
 **Scenario:** Student submits an assignment successfully.  
 1. Navigate to an assignment detail page.  
 2. Enter valid answer text.  
 3. Click **Submit Assignment**.  
 4. Expect: “Submission saved” message appears.
 
-##### Negative
+##### - Negative
 **Scenario:** Student submits content that is too short.  
 1. Enter a short answer (e.g., "short").  
 2. Click **Submit Assignment**.  
@@ -275,7 +275,7 @@
 
 #### Test Case Two – Student Update Submission
 
-##### Positive
+##### - Positive
 **Scenario:** Student updates an existing submission.  
 1. Click **Edit Submission**.  
 2. Update the content with valid text.  
@@ -283,7 +283,7 @@
 4. Expect message: “Submission updated successfully.”  
 5. Content updated in both student and professor view.
 
-##### Negative
+##### - Negative
 **Scenario:** Student updates with invalid content length.  
 1. Edit submission and input a short response (e.g., "tiny").  
 2. Click **Update Submission**.  
