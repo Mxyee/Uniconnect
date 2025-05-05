@@ -528,6 +528,7 @@ def notifications():
     notifications = Notification.query.filter_by(user_id=current_user.id).order_by(Notification.timestamp.desc()).all()
     return render_template('notifications.html', title="Notification", notifications=notifications)
 
+
 @app.route('/notification/<int:id>')
 @login_required
 def view_notification(id):

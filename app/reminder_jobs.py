@@ -9,6 +9,7 @@ def send_activity_reminders():
 
     activities = db.session.query(Activity).filter(Activity.date != None).all()
 
+
     for act in activities:
         if act.date.date() == target_date.date():
             trigger_notification("activity_reminder", user_id=act.created_by, activity_title=act.title, activity_date=act.date.strftime('%Y-%m-%d %H:%M'))

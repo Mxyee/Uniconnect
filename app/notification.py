@@ -4,6 +4,7 @@ from flask_mail import Message
 from flask import render_template
 
 
+
 def notify(user_id, message, send_email=True):
     notification = Notification(user_id=user_id, message=message)
     db.session.add(notification)

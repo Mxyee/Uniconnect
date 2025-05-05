@@ -170,6 +170,7 @@ class CreateActivityForm(FlaskForm):
         choices.append(('Other', 'Other'))
         self.location.choices = choices
 
+
     def validate_date(self, field):
         today = datetime.utcnow().date()
         input_date = field.data.date()
