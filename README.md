@@ -16,46 +16,46 @@
 
 ### Register
 #### Student – Register  
-Click on the **Student Register** button.  
-Students fill in their **username**, **email**, **password**, and **confirm password**.  
-Click on the **Register** button.  
-System checks for duplicate **username or email**.  
+1. Click on the **Student Register** button.  
+2. Students fill in their **username**, **email**, **password**, and **confirm password**.  
+3. Click on the **Register** button.  
+4. System checks for duplicate **username or email**.  
  - If duplicates are found, an error message is shown:  
   - **“Username already taken, please choose another.”**  
   - **“Email address already taken, please choose another.”**  
   - **“Passwords do not meet the security requirements.”**  
  - Otherwise, the student's account is created.  
-Redirects to the **Login** page.
+5. Redirects to the **Login** page.
 
 #### Professor – Register (Admin only)  
-Admin logs in.  
-Click on the **Professor Register** button.  
-Admin fills in the professor's **username**, **email**, **password**, and **confirm password**.  
-Click on the **Register** button.  
-System checks for duplicate **username or email**.  
+1. Admin logs in.  
+2. Click on the **Professor Register** button.  
+3. Admin fills in the professor's **username**, **email**, **password**, and **confirm password**.  
+4. Click on the **Register** button.  
+5. System checks for duplicate **username or email**.  
  - If duplicates are found, an error message is shown:  
   - **“Username already taken, please choose another.”**  
   - **“Email address already taken, please choose another.”**  
  - Otherwise, the professor's account is created.  
-Redirects to the **Login** page.
+6. Redirects to the **Login** page.
 
 ### Login
 
 #### Student – Login  
-Enter **username** and **password**.  
-Click **Login**.  
-- After successful login: navigate to the **Home** page.  
-- Failed login:  
- **An error message is displayed (wrong account or password).**
+1. Enter **username** and **password**.  
+2. Click **Login**.  
+- Successful login, navigate to the **Home** page.  
+- Login failed: error message displayed:  
+ **“Invalid username or password”**
 
 #### Professor – Login  
-The professor account is created by **Admin** in advance.  
-The **username** and **default password** are provided to the professor.  
-Professor enters the username and default password.  
-Click **Login**.  
+1. The professor account is created by **Admin** in advance.  
+2. The **username** and **default password** are provided to the professor.  
+3. Professor enters the username and default password.  
+4. Click **Login**.
 - Successful login: navigate to the **Home** page.  
 - Login failed: error message displayed:  
- **“Incorrect account or password.”**
+ **“Invalid username or password”**
 
 #### Test Case One – Registers and Login
 
@@ -83,7 +83,7 @@ Click **Login**.
  • Password: `www234`  
 3. Click the **Login** button.  
 4. Login fails. An error message is displayed:  
- • **“Incorrect username or password.”**  
+ • **“Invalid username or password”**  
 5. The user remains on the login page.
 
 #### Test Case Two – Professor Login
@@ -108,7 +108,7 @@ Click **Login**.
  • Password: `12345`  
 3. Click the **Login** button.  
 4. Login fails. An error message is displayed:  
- • **“Incorrect account or password, not in the record.”**  
+ • **“Invalid username or password”**  
 5. The professor remains on the login page.
 
 ---
