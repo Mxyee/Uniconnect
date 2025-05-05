@@ -14,58 +14,59 @@
 - APScheduler
 ## Step by step instruction
 
+
 ### Activities:
 
-#### 1. Student – Creating an Activity
+1. **Student – Creating an Activity**  
 
-1. Navigate to the Activities page from the navigation bar.  
-2. Click the **Create New Activity** button.  
-3. Fill out the required fields:  
-   - **Title:** Enter a descriptive title for the activity.  
-   - **Description:** Provide details about the activity.  
-   - **Location:** Select a location from the dropdown menu.  
-     (If “Other” is selected, you may manually enter a custom location.)  
-   - **Date and Time:** Choose a date at least **7 days from today**.  
-4. Click **Create Activity** to create the activity.  
-5. A confirmation message will appear once the activity is successfully created.  
+   1. Navigate to the Activities page from the navigation bar.  
+   2. Click the **Create New Activity** button.  
+   3. Fill out the required fields:  
+      - **Title:** Enter a descriptive title for the activity.  
+      - **Description:** Provide details about the activity.  
+      - **Location:** Select a location from the dropdown menu.  
+        (If “Other” is selected, you may manually enter a custom location.)  
+      - **Date and Time:** Choose a date at least **7 days from today**.  
+   4. Click **Create Activity** to create the activity.  
+   5. A confirmation message will appear once the activity is successfully created.  
 
-**Note:** Upon creation, the student is automatically registered as a participant of the activity.  
-
----
-
-#### 2. Student – Edit an Activity (Creator Only)
-
-1. On the **Activities** page, find the activity you created.  
-2. Click **Details** to open the activity detail page.  
-3. If you're the creator, you will see an **Edit** button.  
-4. Click **Edit**, update the fields as needed, and then click **Create Activity**.  
-5. A success message will confirm the updates.  
-
-**Note:** You cannot edit activities that have already taken place.  
+   **Note:** Upon creation, the student is automatically registered as a participant of the activity.  
 
 ---
 
-#### 3. Student – Participate in an Activity
+2. **Student – Edit an Activity (Creator Only)**
 
-1. On the **Activities** page, browse or search for activities.  
-2. Click **Details** on any activity to see its description, time, and current participants.  
-3. Use the **Join** button to participate in an activity.  
-4. If the activity is full (5 participants), a warning will be shown.  
-5. To **leave** an activity:  
-   - Go to the activity details.  
-   - Click **Leave** (only allowed if the activity is more than 3 days away).  
-   - A confirmation message will appear upon successful leave.  
+   1. On the **Activities** page, find the activity you created.  
+   2. Click **Details** to open the activity detail page.  
+   3. If you're the creator, you will see an **Edit** button.  
+   4. Click **Edit**, update the fields as needed, and then click **Create Activity**.  
+   5. A success message will confirm the updates.  
 
-**Note:**  
-- If the original creator leaves and there are still participants, the system will automatically assign the next participant in order as a new creator.  
-- If no participants remain, the activity will be automatically deleted.  
+   **Note:** You cannot edit activities that have already taken place.  
 
 ---
 
-#### 4. Professor
+3. **Student – Participate in an Activity**
 
-1. Professors can view all activities, including details and participant lists.  
-2. However, professors **cannot create, join, edit, or leave** activities.  
+   1. On the **Activities** page, browse or search for activities.  
+   2. Click **Details** on any activity to see its description, time, and current participants.  
+   3. Use the **Join** button to participate in an activity.  
+   4. If the activity is full (5 participants), a warning will be shown.  
+   5. To **leave** an activity:  
+      - Go to the activity details.  
+      - Click **Leave** (only allowed if the activity is more than 3 days away).  
+      - A confirmation message will appear upon successful leave.  
+
+   **Note:**  
+   - If the original creator leaves and there are still participants, the system will automatically assign the next participant in order as a new creator.  
+   - If no participants remain, the activity will be automatically deleted.  
+
+---
+
+4. **Professor**
+
+   1. Professors can view all activities, including details and participant lists.  
+   2. However, professors **cannot create, join, edit, or leave** activities.  
 
 
 ## Implemented Functionalities
