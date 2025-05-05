@@ -16,7 +16,7 @@
 
 ## Implemented Functionalities
 
-###Activity Features:
+### Activity Features:
 1.Students can create activities.
 2.The activity creator can edit the activity.
 3.If the creator leaves the activity, the next participant automatically becomes the new creator.
