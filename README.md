@@ -208,6 +208,87 @@
 2. The **"Leave Activity"** button is disabled.
 ---
 ### Assignments, Submissions and Feedback:
+
+#### 1. Professor – Create an Assignment
+1. Navigate to the **Assignments** page from the navigation bar.  
+2. Click the **New Assignment** button.  
+3. Enter the **title**, **description**, and **deadline**.  
+4. Click the **Submit** button.  
+5. A success message will appear, and the assignment will be listed.  
+
+#### 2. Professor – Search for Assignments
+1. Navigate to the **Assignments** page from the navigation bar.  
+2. Enter keywords in the **Search assignments** box.  
+3. Click the **Search** button to search assignments by title with case-insensitive partial matches.  
+
+#### 3. Professor – Edit an Assignment
+1. On the **Assignments** page, click the title of the assignment you want to edit.  
+2. On the assignment detail page, click the **Edit Assignment** button.  
+3. Update the **title**, **description**, or **deadline**.  
+4. Click **Submit** to save the changes.  
+
+#### 4. Professor – Delete an Assignment
+1. On the **Assignments** page, click the title of the assignment you want to delete.  
+2. On the assignment detail page, click the **Delete Assignment** button.  
+3. In the confirmation dialog, click **Confirm** to delete the assignment.  
+
+#### 5. Student – Submit an Assignment
+1. Navigate to the **Assignments** page.  
+2. Click on the **title** of the assignment.  
+3. On the assignment detail page, fill in your answer in the content box.  
+4. Click **Submit Assignment**. A success message will confirm submission.  
+
+#### 6. Student – Edit a Submission
+1. On the assignment detail page, click **Edit Submission**.  
+2. The form will be pre-filled with your existing answer.  
+3. Modify your answer and click **Update Submission**.  
+4. A success message confirms the update.  
+
+#### 7. Student – Delete a Submission
+1. On the assignment detail page, click **Delete Submission**.  
+2. A confirmation dialog will appear. Click **OK** to delete.  
+3. The submission will be removed from the system.  
+
+#### 8. Student – View Feedback
+1. After professor reviews the submission, feedback will be visible on the assignment detail page.  
+
+#### 9. Professor – Give Feedback
+1. On the assignment detail page, professors can view each submission.  
+2. Enter comments in the feedback form and click **Submit** to save.  
+3. The feedback becomes visible to the student.  
+
+#### Test Case One – Student Submit Assignment
+
+##### Positive
+**Scenario:** Student submits an assignment successfully.  
+- Navigate to an assignment detail page.  
+- Enter valid answer text.  
+- Click **Submit Assignment**.  
+- Expect: “Submission saved” message appears.
+
+##### Negative
+**Scenario:** Student submits content that is too short.  
+- Enter a short answer (e.g., "short").  
+- Click **Submit Assignment**.  
+- Expect error: “Answer must be between 10 and 500 characters.”  
+- The page reloads without saving.
+
+#### Test Case Two – Student Update Submission
+
+##### Positive
+**Scenario:** Student updates an existing submission.  
+- Click **Edit Submission**.  
+- Update the content with valid text.  
+- Click **Update Submission**.  
+- Expect message: “Submission updated successfully.”  
+- Content updated in both student and professor view.
+
+##### Negative
+**Scenario:** Student updates with invalid content length.  
+- Edit submission and input a short response (e.g., "tiny").  
+- Click **Update Submission**.  
+- Expect error message: “Answer must be between 10 and 500 characters.”  
+- Page stays on the same form without saving.
 ---
 ### Notifications:
 
