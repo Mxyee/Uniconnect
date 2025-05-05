@@ -167,16 +167,16 @@ Click **Login**.
 
 ##### Positive
 **Scenario:** A student logs in and wants to organise a new study event.  
-- Students create an activity with a valid date (e.g., 7 days from today).  
-- Fill in all required fields.  
-- Click **"Create Activity"**.  
-- Redirects to the activity list page with a success message displayed.
+1. Students create an activity with a valid date (e.g., 7 days from today).  
+2. Fill in all required fields.  
+3. Click **"Create Activity"**.  
+4. Redirects to the activity list page with a success message displayed.
 
 ##### Negative
 **Scenario:** A student tries to create an activity without meeting the date requirement.  
-- Attempt to create an activity using today’s date.  
-- Click **"Create Activity"**.  
-- Form stays on the same page and shows an error:  
+1. Attempt to create an activity using today’s date.  
+2. Click **"Create Activity"**.  
+3. Form stays on the same page and shows an error:  
   **“The activity date must be at least 7 days from today.”**
 
 
@@ -184,14 +184,14 @@ Click **Login**.
 
 ##### Positive
 **Scenario:** A student wants to join a group event that is still open.  
-- Navigate to an activity that has available spots.  
-- Click **"Join Activity"**.  
-- Successfully joins and page refreshes, showing your name in the participant list.
+1. Navigate to an activity that has available spots.  
+2. Click **"Join Activity"**.  
+3. Successfully joins and page refreshes, showing your name in the participant list.
 
 ##### Negative
 **Scenario:** A student tries to join a full activity.  
-- Attempt to join an activity that already has 5 participants.  
-- The **"Join Activity"** button is disabled and displays the text:  
+1. Attempt to join an activity that already has 5 participants.  
+2. The **"Join Activity"** button is disabled and displays the text:  
   **“Activity Full”**
 
 
@@ -199,14 +199,14 @@ Click **Login**.
 
 ##### Positive
 **Scenario:** A student decides to leave an activity before the start date.  
-- Open an activity scheduled to start in 7 days.  
-- Click **"Leave"**.  
-- Successfully leaves with a confirmation message.
+1. Open an activity scheduled to start in 7 days.  
+2. Click **"Leave"**.  
+3. Successfully leaves with a confirmation message.
 
 ##### Negative
 **Scenario:** A student attempts to leave too close to the start of the activity.  
-- Attempt to leave an activity starting in 3 days.  
-- The **"Leave Activity"** button is disabled.
+1. Attempt to leave an activity starting in 3 days.  
+2. The **"Leave Activity"** button is disabled.
 
 ---
 ## Implemented Functionalities
