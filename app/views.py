@@ -483,6 +483,7 @@ def give_feedback():
     return redirect(url_for('assignment_detail', assignment_id=assignment_id))
 
 
+
 @app.route('/delete_submission/<int:submission_id>', methods=['POST'])
 @login_required
 def delete_submission(submission_id):
