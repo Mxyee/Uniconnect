@@ -179,7 +179,56 @@ Click **Login**.
 #### 4. Professor
 
 1. Professors can view all activities, including details and participant lists.  
-2. However, professors **cannot create, join, edit, or leave** activities.  
+2. However, professors **cannot create, join, edit, or leave** activities.
+
+
+### Test Case One – Create Activity
+
+#### Positive
+**Scenario:** A student logs in and wants to organise a new study event.  
+- Students create an activity with a valid date (e.g., 7 days from today).  
+- Fill in all required fields.  
+- Click **"Create Activity"**.  
+- Redirects to the activity list page with a success message displayed.
+
+#### Negative
+**Scenario:** A student tries to create an activity without meeting the date requirement.  
+- Attempt to create an activity using today’s date.  
+- Click **"Create Activity"**.  
+- Form stays on the same page and shows an error:  
+  **“The activity date must be at least 7 days from today.”**
+
+---
+
+### Test Case Two – Join Activity
+
+#### Positive
+**Scenario:** A student wants to join a group event that is still open.  
+- Navigate to an activity that has available spots.  
+- Click **"Join Activity"**.  
+- Successfully joins and page refreshes, showing your name in the participant list.
+
+#### Negative
+**Scenario:** A student tries to join a full activity.  
+- Attempt to join an activity that already has 5 participants.  
+- The **"Join Activity"** button is disabled and displays the text:  
+  **“Activity Full”**
+
+---
+
+### Test Case Three – Leave Activity
+
+#### Positive
+**Scenario:** A student decides to leave an activity before the start date.  
+- Open an activity scheduled to start in 7 days.  
+- Click **"Leave"**.  
+- Successfully leaves with a confirmation message.
+
+#### Negative
+**Scenario:** A student attempts to leave too close to the start of the activity.  
+- Attempt to leave an activity starting in 3 days.  
+- The **"Leave Activity"** button is disabled.
+
 ---
 ## Implemented Functionalities
 
