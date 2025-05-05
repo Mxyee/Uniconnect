@@ -198,7 +198,6 @@ Click **Login**.
 - Form stays on the same page and shows an error:  
   **“The activity date must be at least 7 days from today.”**
 
----
 
 ### Test Case Two – Join Activity
 
@@ -214,7 +213,6 @@ Click **Login**.
 - The **"Join Activity"** button is disabled and displays the text:  
   **“Activity Full”**
 
----
 
 ### Test Case Three – Leave Activity
 
