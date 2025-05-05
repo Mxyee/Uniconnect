@@ -14,6 +14,122 @@
 - APScheduler
 ## Step by step instruction
 
+# Register
+## Student – Register  
+Click on the **Student Register** button.  
+Students fill in their **username**, **email**, **password**, and **confirm password**.  
+Click on the **Register** button.  
+System checks for duplicate **username or email**.  
+ - If duplicates are found, an error message is shown:  
+  - **“Username already taken, please choose another.”**  
+  - **“Email address already taken, please choose another.”**  
+  - **“Passwords do not meet the security requirements.”**  
+ - Otherwise, the student's account is created.  
+Redirects to the **Login** page.
+
+## Professor – Register (Admin only)  
+Admin logs in.  
+Click on the **Professor Register** button.  
+Admin fills in the professor's **username**, **email**, **password**, and **confirm password**.  
+Click on the **Register** button.  
+System checks for duplicate **username or email**.  
+ - If duplicates are found, an error message is shown:  
+  - **“Username already taken, please choose another.”**  
+  - **“Email address already taken, please choose another.”**  
+ - Otherwise, the professor's account is created.  
+Redirects to the **Login** page.
+
+# Login
+
+## Student – Login  
+Enter **username** and **password**.  
+Click **Login**.  
+- After successful login: navigate to the **Home** page.  
+- Failed login:  
+ **An error message is displayed (wrong account or password).**
+
+## Professor – Login  
+The professor account is created by **Admin** in advance.  
+The **username** and **default password** are provided to the professor.  
+Professor enters the username and default password.  
+Click **Login**.  
+- Successful login: navigate to the **Home** page.  
+- Login failed: error message displayed:  
+ **“Incorrect account or password.”**
+
+#### Implemented Login and Register
+
+- Students can register their own accounts via the **Student Register** page.  
+- The system validates duplicate **username** and **email** during registration.  
+- Password confirmation is required and must match the original password.  
+- Passwords must meet the policy requirements:  
+ • Minimum 8 characters  
+ • At least one uppercase letter  
+ • At least one lowercase letter  
+ • At least one number  
+- On successful registration, students are redirected to the **Login** page.  
+- Admins can create professor accounts via the **Professor Register** page.  
+- Professors cannot register themselves; accounts are provided by **Admin**.  
+- Both students and professors can log in using their assigned credentials.  
+- Login process validates **username** and **password**.  
+- Invalid login attempts display clear error messages and do not proceed.  
+- Successful login redirects to the **Home** page.  
+- The system distinguishes login types between **Student** and **Professor**.
+
+#### Test Case One – Registers and Login
+
+##### – Positive  
+**Scenario**: Student registers with valid information and logs in successfully.  
+1. Navigate to the **Student Register** page.  
+2. Fill in the registration form:  
+ • Username: `Alice886`  
+ • Email: `alice66@gmail.com`  
+ • Password: `Hello123`  
+ • Confirm Password: `Hello123`  
+3. Click the **Register** button.  
+4. Registration is successful. Redirects to the **Login** page.  
+5. On the **Login** page, enter:  
+ • Username: `Alice886`  
+ • Password: `Hello123`  
+6. Click the **Login** button.  
+7. Login is successful. User is navigated to the **Home** page.
+
+##### – Negative  
+**Scenario**: Student attempts to log in with incorrect credentials.  
+1. Navigate to the **Student Login** page.  
+2. Enter:  
+ • Username: `Alice886`  
+ • Password: `www234`  
+3. Click the **Login** button.  
+4. Login fails. An error message is displayed:  
+ • **“Incorrect username or password.”**  
+5. The user remains on the login page.
+
+#### Test Case Two – Professor Login
+
+##### – Positive  
+**Scenario**: Professor logs in with valid credentials.  
+1. Admin creates a professor account with:  
+ • Username: `prof.A`  
+ • Password: `Prof12345`  
+2. Professor navigates to the **Professor Login** page.  
+3. Enters:  
+ • Username: `prof.A`  
+ • Password: `Prof12345`  
+4. Click the **Login** button.  
+5. Login is successful. The professor is navigated to the **Home** page.
+
+##### – Negative  
+**Scenario**: Professor enters incorrect login information.  
+1. Navigate to the **Professor Login** page.  
+2. Enter:  
+ • Username: `prof.A`  
+ • Password: `12345`  
+3. Click the **Login** button.  
+4. Login fails. An error message is displayed:  
+ • **“Incorrect account or password, not in the record.”**  
+5. The professor remains on the login page.
+
 ---
 ### Activities:
 
