@@ -14,7 +14,7 @@
 - APScheduler
 ## Step by step instruction
 
-
+---
 ### Activities:
 
 #### 1. Student – Creating an Activity
@@ -32,7 +32,6 @@
 
 **Note:** Upon creation, the student is automatically registered as a participant of the activity.  
 
----
 
 #### 2. Student – Edit an Activity (Creator Only)
 
@@ -44,7 +43,6 @@
 
 **Note:** You cannot edit activities that have already taken place.  
 
----
 
 #### 3. Student – Participate in an Activity
 
@@ -61,13 +59,12 @@
 - If the original creator leaves and there are still participants, the system will automatically assign the next participant in order as a new creator.  
 - If no participants remain, the activity will be automatically deleted.  
 
----
 
 #### 4. Professor
 
 1. Professors can view all activities, including details and participant lists.  
 2. However, professors **cannot create, join, edit, or leave** activities.  
-
+---
 ## Implemented Functionalities
 
 ### Activity Features:
