@@ -259,6 +259,7 @@ def edit_activity(id):
     return render_template('create_activity.html', title="Edit Activity", form=form)
 
 @app.route('/assignments')
+@login_required
 def assignments():
     if current_user.role == 'professor':
         # if the current user is a professor, show their own assignments
