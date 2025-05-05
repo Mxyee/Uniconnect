@@ -1,6 +1,6 @@
 # Uniconnect
 ## System description
-## Languages & Frameworks Used
+## Programming languages & Frameworks Used
 - Python 3.x  
 - Flask  
 - Jinja2  
