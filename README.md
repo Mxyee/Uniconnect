@@ -15,7 +15,7 @@
 ## Step by step instruction
 
 ### Register
-#### Student – Register  
+#### 1. Student – Register  
 1. Click on the **Student Register** button.  
 2. Students fill in their **username**, **email**, **password**, and **confirm password**.  
 3. Click on the **Register** button.  
@@ -27,7 +27,7 @@
  - Otherwise, the student's account is created.  
 5. Redirects to the **Login** page.
 
-#### Professor – Register (Admin only)  
+#### 2. Professor – Register (Admin only)  
 1. Admin logs in.  
 2. Click on the **Professor Register** button.  
 3. Admin fills in the professor's **username**, **email**, **password**, and **confirm password**.  
@@ -41,14 +41,14 @@
 
 ### Login
 
-#### Student – Login  
+#### 1. Student – Login  
 1. Enter **username** and **password**.  
 2. Click **Login**.  
 - Successful login, navigate to the **Home** page.  
 - Login failed: error message displayed:  
  **“Invalid username or password”**
 
-#### Professor – Login  
+#### 2. Professor – Login  
 1. The professor account is created by **Admin** in advance.  
 2. The **username** and **default password** are provided to the professor.  
 3. Professor enters the username and default password.  
@@ -110,7 +110,6 @@
 4. Login fails. An error message is displayed:  
  • **“Invalid username or password”**  
 5. The professor remains on the login page.
-
 ---
 ### Activities:
 
