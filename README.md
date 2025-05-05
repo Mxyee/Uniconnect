@@ -14,6 +14,8 @@
 - APScheduler
 ## Step by step instruction
 
+## Implemented Functionalities
+
 ## Contribution table
 | Student Name & ID      | Contribution (%) | Key Contributions / Tasks Completed                                        | Signature     |
 |------------------------|------------------|-----------------------------------------------------------------------------|---------------|
