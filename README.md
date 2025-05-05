@@ -211,7 +211,7 @@ Click **Login**.
 ---
 ## Implemented Functionalities
 
-#### Implemented Login and Register
+### Login and Register:
 
 1. Students can register their own accounts via the **Student Register** page.  
 2. The system validates duplicate **username** and **email** during registration.  
@@ -219,8 +219,8 @@ Click **Login**.
 4. Passwords must meet the policy requirements:  
  - Minimum 8 characters  
  - At least one uppercase letter  
- - At least one lowercase letter  
- - At least one number  
+ - At least one lowercase letter  
+ - At least one number  
 5. On successful registration, students are redirected to the **Login** page.  
 6. Admins can create professor accounts via the **Professor Register** page.  
 7. Professors cannot register themselves; accounts are provided by **Admin**.  
