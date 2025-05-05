@@ -14,17 +14,29 @@ class ChooseForm(FlaskForm):
     choice = HiddenField('Choice')
     submit = SubmitField('Choose')
 
-
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
 
+def password_policy(form, field):
+    message = """A password must be at least 8 characters long, and have an
+                 uppercase and lowercase letter, and a digit"""
+    if len(field.data) < 8:
+        raise ValidationError(message)
+    flg_upper = flg_lower = flg_digit = False
+    for ch in field.data:
+        flg_upper = flg_upper or ch.isupper()
+        flg_lower = flg_lower or ch.islower()
+        flg_digit = flg_digit or ch.isdigit()
+    if not (flg_upper and flg_lower and flg_digit):
+        raise ValidationError(message)
+
 class RegisterForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired(), password_policy])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Register')
 
@@ -37,6 +49,7 @@ class RegisterForm(FlaskForm):
         q = db.select(User).where(User.email==field.data)
         if db.session.scalar(q):
             raise ValidationError("Email address already taken, please choose another")
+
 
 class CreateActivityForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired(), Length(max=128)])
