@@ -14,7 +14,7 @@
 - APScheduler
 ## Step by step instruction
 
-### Register
+### Register:
 #### 1. Student – Register  
 1. Click on the **Student Register** button.  
 2. Students fill in their **username**, **email**, **password**, and **confirm password**.  
@@ -39,7 +39,7 @@
  - Otherwise, the professor's account is created.  
 6. Redirects to the **Login** page.
 
-### Login
+### Login:
 
 #### 1. Student – Login  
 1. Enter **username** and **password**.  
@@ -206,12 +206,14 @@
 **Scenario:** A student attempts to leave too close to the start of the activity.  
 1. Attempt to leave an activity starting in 3 days.  
 2. The **"Leave Activity"** button is disabled.
-
 ---
+### Assignments, Submissions and Feedback:
+---
+### Notifications:
+
 ## Implemented Functionalities
 
 ### Login and Register:
-
 1. Students can register their own accounts via the **Student Register** page.  
 2. The system validates duplicate **username** and **email** during registration.  
 3. Password confirmation is required and must match the original password.  
@@ -228,9 +230,7 @@
 10. Invalid login attempts display clear error messages and do not proceed.  
 11. Successful login redirects to the **Home** page.  
 12. The system distinguishes login types between **Student** and **Professor**.
-
 ---
-
 ### Activity Features:
 
 1. Students can create activities.  
@@ -243,7 +243,20 @@
 8. Activities can be searched and sorted by title, date, and location.  
 9. Students can view all activities they have joined by clicking "Show My Activities".  
 10. Each activity has a maximum of 5 participants.  
-11. Students cannot join past activities.  
+11. Students cannot join past activities.
+---
+### Assignment Features:
+1. Professors can create new assignments with title, description, and deadline.  
+2. Professors can edit or delete assignments they created.
+3. Professors can search assignments by title with case-insensitive partial matches.
+4. Students can submit, edit, and delete their own assignment submissions.
+5. Professors can view all student submissions and provide feedback for each one.
+6. Submitted answers are pre-filled for editing convenience.
+7. Only the student who submitted can modify or delete their own work.
+8. Students can view professor feedback directly on the assignment detail page.
+9. Professors can only edit their own assignments and cannot modify others’ assignments.
+10. The answer must be between 10 to 500 characters.
+
 
 ## Contribution table
 | Student Name & ID      | Contribution (%) | Key Contributions / Tasks Completed                                        | Signature     |
