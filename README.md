@@ -97,12 +97,12 @@ This prototype demonstrates key software engineering principles including MVC ar
 ##### – Positive  
 **Scenario**: Professor logs in with valid credentials.  
 1. Admin creates a professor account with:  
- • Username: `prof.A`  
- • Password: `Prof12345`  
+ • Username: `prof_lee`  
+ • Password: `lee123`  
 2. Professor navigates to the **Professor Login** page.  
 3. Enters:  
- • Username: `prof.A`  
- • Password: `Prof12345`  
+ • Username: `prof_lee`  
+ • Password: `lee123`  
 4. Click the **Login** button.  
 5. Login is successful. The professor is navigated to the **Home** page.
 
