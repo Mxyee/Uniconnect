@@ -6,14 +6,15 @@
 - Jinja2  
 - Flask-WTF  
 - Flask-Mail
-- Flask-SQLAlchemy
-- JavaScript
-- Bootstrap 5
-- HTML/CSS
-- SQLite
+- SQLAlchemy
+- APScheduler
+- Werkzeug
 - python-dotenv
 - email-validator
-- APScheduler
+- SQLite
+- HTML / CSS
+- Bootstrap 5
+- JavaScript
 ## Step by step instruction
 
 ### Register:
