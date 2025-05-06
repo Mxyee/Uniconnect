@@ -5,12 +5,14 @@
 - Flask  
 - Jinja2  
 - Flask-WTF  
-- Flask-Mail  
-- JavaScript  
-- Bootstrap 5  
-- HTML/CSS  
-- SQLAlchemy  
-- SQLite  
+- Flask-Mail
+- Flask-SQLAlchemy
+- JavaScript
+- Bootstrap 5
+- HTML/CSS
+- SQLite
+- python-dotenv
+- email-validator
 - APScheduler
 ## Step by step instruction
 
