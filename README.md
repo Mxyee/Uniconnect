@@ -1,5 +1,8 @@
 # Uniconnect
 ## System description
+Uniconnect is a Flask-based web application designed to facilitate academic coordination between students and professors. It supports two primary modules: Activity Management and Assignment Submission. Students can create and join academic or social activities, with features like participant limits, scheduled reminders, and automatic role reassignment when the creator leaves. Professors, meanwhile, can create, edit, and manage assignments, while students are able to submit, update, and delete their submissions. Professors can provide feedback directly, which students can then view.
+The system includes a built-in notification module to deliver automated alerts for deadlines and upcoming events. It also enforces strict access controls: users must be authenticated, and only authorized roles can perform specific actions. The interface is intuitive, mobile-friendly, and structured for ease of use.
+This prototype demonstrates key software engineering principles including MVC architecture, form validation, error handling, and modular design. The project also integrates version control using Git and follows Agile development practices to allow iterative collaboration among team members.
 ## Programming languages & Frameworks Used
 - Python 3.x  
 - Flask  
@@ -415,6 +418,27 @@ Notifications are stored in the database and displayed in a dedicated Notificati
 12. Notifications pages are protected with @login_required.
 13. If a user tries to access notifications without logging in, they are redirected to the login page.
 14. Notification logic is separated via trigger_notification() for easy extension and testing.
+---
+###Features
+1.Student Registration and Authentication:
+2.Assignment Submission and Feedback
+3.Task Manager
+
+---
+###Design Pattern
+1.MVC Architecture
+2. Publish-Subscribe
+
+---
+###Relationships
+1.Association：
+-The Submission model is associated with both Assignment and User (as student) via foreign keys.
+2.Many to One: 
+-A student (User with role 'student') can submit many Submissions, each belonging to one Assignment.
+3.One to Many:
+-A professor (User with role 'professor') can create multiple Assignments.
+-Each Assignment can have multiple Submissions from students.
+
 ---
 ## Contribution table
 | Student Name & ID      | Contribution (%) | Key Contributions / Tasks Completed                                        | Signature     |
