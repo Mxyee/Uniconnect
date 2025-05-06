@@ -419,18 +419,15 @@ Notifications are stored in the database and displayed in a dedicated Notificati
 13. If a user tries to access notifications without logging in, they are redirected to the login page.
 14. Notification logic is separated via trigger_notification() for easy extension and testing.
 ---
-###Features
+####Features
 1.Student Registration and Authentication:
 2.Assignment Submission and Feedback
 3.Task Manager
-
 ---
-###Design Pattern
-1.MVC Architecture
-2. Publish-Subscribe
-
+####Design Pattern
+MVC Architecture
 ---
-###Relationships
+####Relationships
 1.Association：
 -The Submission model is associated with both Assignment and User (as student) via foreign keys.
 2.Many to One: 
@@ -438,7 +435,6 @@ Notifications are stored in the database and displayed in a dedicated Notificati
 3.One to Many:
 -A professor (User with role 'professor') can create multiple Assignments.
 -Each Assignment can have multiple Submissions from students.
-
 ---
 ## Contribution table
 | Student Name & ID      | Contribution (%) | Key Contributions / Tasks Completed                                        | Signature     |
