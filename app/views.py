@@ -31,7 +31,7 @@ def account():
     return render_template('account.html', title="Account")
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])#Wenjung Chen
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('home'))
@@ -49,17 +49,16 @@ def login():
         return redirect(next_page)
     return render_template('generic_form.html', title='Sign In', form=form)
 
-@app.route('/logout')
+@app.route('/logout')#Wenjung Chen
 def logout():
     logout_user()
     return redirect(url_for('home'))
 
-@app.route('/student/register', methods=['GET', 'POST'])
+@app.route('/student/register', methods=['GET', 'POST'])#Wenjung Chen
 def student_register():
     if current_user.is_authenticated:
         flash('You are already logged in!', 'warning')
         return redirect(url_for('home'))
-
     form = RegisterForm()
     if form.validate_on_submit():
         student = User(username=form.username.data, email=form.email.data, role='student')
@@ -68,10 +67,9 @@ def student_register():
         db.session.commit()
         flash('Congratulations, you are now registered as a student!', 'success')
         return redirect(url_for('login'))
-
     return render_template('student_register.html', title='Student Register', form=form)
 
-@app.route('/professor/register', methods=['GET', 'POST'])
+@app.route('/professor/register', methods=['GET', 'POST'])#Wenjung Chen
 def professor_register():
     if current_user.role != 'admin':
         flash('Only admins can register professor accounts', 'warning')
@@ -88,7 +86,7 @@ def professor_register():
 
     return render_template('professor_register.html', title='Professor Register', form=form)
 
-@app.route("/activities")
+@app.route("/activities") #Ting-Chieh Lin
 def activities():
     search = request.args.get('search', '')
     sort_by = request.args.get('sort_by', 'date')
@@ -117,7 +115,7 @@ def activities():
     activities = db.session.scalars(q)
     return render_template('activities.html', activities=activities, search=search, sort_by=sort_by, order=order, title="Activities", mine=mine)
 
-@app.route('/create_activity', methods=['GET', 'POST'])
+@app.route('/create_activity', methods=['GET', 'POST'])#Ting-Chieh Lin
 @login_required
 def create_activity():
     if current_user.role != 'student':
@@ -150,7 +148,7 @@ def create_activity():
         return redirect(url_for('activities'))
     return render_template('create_activity.html', title="Create Activity", form=form)
 
-@app.route('/activity/<int:id>', methods=['GET', 'POST'])
+@app.route('/activity/<int:id>', methods=['GET', 'POST'])#Ting-Chieh Lin
 @login_required
 def activity(id):
     activity = db.session.get(Activity, id)
@@ -224,7 +222,7 @@ def activity(id):
     can_leave=can_leave)
 
 
-@app.route('/activity/<int:id>/edit', methods=['GET', 'POST'])
+@app.route('/activity/<int:id>/edit', methods=['GET', 'POST'])#Ting-Chieh Lin
 @login_required
 def edit_activity(id):
     activity = db.session.get(Activity, id)
@@ -258,7 +256,7 @@ def edit_activity(id):
         form.location.data = activity.location
     return render_template('create_activity.html', title="Edit Activity", form=form)
 
-@app.route('/assignments')
+@app.route('/assignments')#Haoyang Zhao
 @login_required
 def assignments():
     if current_user.role == 'professor':
@@ -275,7 +273,7 @@ def assignments():
     assignments = db.session.scalars(q)
     return render_template('assignments.html', title="Assignments", assignments=assignments)
 
-@app.route('/new_assignment', methods=['GET', 'POST'])
+@app.route('/new_assignment', methods=['GET', 'POST'])#Haoyang Zhao
 @login_required
 def new_assignment():
     # only professor can create new assignment
@@ -297,7 +295,7 @@ def new_assignment():
         return redirect(url_for('assignments'))
     return render_template('generic_form.html', title='New Assignment', form=form)
 
-@app.route('/assignment/<int:assignment_id>', methods=['GET', 'POST'])
+@app.route('/assignment/<int:assignment_id>', methods=['GET', 'POST'])#Haoyang Zhao&Ming-Ye Chan
 @login_required
 def assignment_detail(assignment_id):
     assignment = db.session.get(Assignment, assignment_id)
@@ -352,7 +350,7 @@ def assignment_detail(assignment_id):
                            choose_form=choose_form)
 
 
-@app.route("/edit_assignment/<int:assignment_id>", methods=['GET', 'POST'])
+@app.route("/edit_assignment/<int:assignment_id>", methods=['GET', 'POST'])#Haoyang Zhao
 @login_required
 def edit_assignment(assignment_id):
     assignment = db.session.get(Assignment, assignment_id)
@@ -374,7 +372,7 @@ def edit_assignment(assignment_id):
         return redirect(url_for('assignment_detail', assignment_id=assignment.id))
     return render_template('generic_form.html', title='Edit Assignment', form=form)
 
-@app.route('/assignment/<int:assignment_id>/delete', methods=['POST'])
+@app.route('/assignment/<int:assignment_id>/delete', methods=['POST'])#Haoyang Zhao
 @login_required
 def delete_assignment(assignment_id):
     assignment = db.session.get(Assignment, assignment_id)
@@ -392,7 +390,7 @@ def delete_assignment(assignment_id):
     flash('Assignment deleted successfully!', 'success')
     return redirect(url_for('assignments'))
 
-@app.route('/submit_assignment/<int:assignment_id>', methods=['GET', 'POST'])
+@app.route('/submit_assignment/<int:assignment_id>', methods=['GET', 'POST'])#Ming-Ye Chan
 @login_required
 def submit_assignment(assignment_id):
     if current_user.role != 'student':
@@ -441,7 +439,7 @@ def submit_assignment(assignment_id):
 
     return render_template('assignment_detail.html', title=f'Submit: {assignment.title}', assignment=assignment, form=form, submission=submission)
 
-@app.route('/give_feedback', methods=['POST'])
+@app.route('/give_feedback', methods=['POST'])#Ming-Ye Chan
 @login_required
 def give_feedback():
     if current_user.role != 'professor':
@@ -485,7 +483,7 @@ def give_feedback():
 
 
 
-@app.route('/delete_submission/<int:submission_id>', methods=['POST'])
+@app.route('/delete_submission/<int:submission_id>', methods=['POST'])#Ming-Ye Chan
 @login_required
 def delete_submission(submission_id):
     submission = db.session.get(Submission, submission_id)
@@ -498,7 +496,7 @@ def delete_submission(submission_id):
     flash('Submission deleted.', 'info')
     return redirect(url_for('assignments'))
 
-@app.route("/edit_submission/<int:submission_id>", methods=['GET', 'POST'])
+@app.route("/edit_submission/<int:submission_id>", methods=['GET', 'POST'])#Ming-Ye Chan
 @login_required
 def edit_submission(submission_id):
     submission = db.session.get(Submission, submission_id)
@@ -524,14 +522,14 @@ def edit_submission(submission_id):
     return render_template('generic_form.html', title='Edit Submission', form=form)
 
 
-@app.route('/notifications')
+@app.route('/notifications')#Ying-Hsin Hua
 @login_required
 def notifications():
     notifications = Notification.query.filter_by(user_id=current_user.id).order_by(Notification.timestamp.desc()).all()
     return render_template('notifications.html', title="Notification", notifications=notifications)
 
 
-@app.route('/notification/<int:id>')
+@app.route('/notification/<int:id>')#Ying-Hsin Hua
 @login_required
 def view_notification(id):
     notification = Notification.query.get_or_404(id)
