@@ -1,7 +1,7 @@
 # Uniconnect
 ## System description
 Uniconnect is a Flask-based web application designed to facilitate academic coordination between students and professors. It supports two primary modules: Activity Management and Assignment Submission. Students can create and join academic or social activities, with features like participant limits, scheduled reminders, and automatic role reassignment when the creator leaves. Professors, meanwhile, can create, edit, and manage assignments, while students are able to submit, update, and delete their submissions. Professors can provide feedback directly, which students can then view.
-The system includes a built-in notification module to deliver automated alerts for deadlines and upcoming events. It also enforces strict access controls: users must be authenticated, and only authorized roles can perform specific actions. The interface is intuitive, mobile-friendly, and structured for ease of use.
+The system includes a built-in notification module that delivers automated reminders for upcoming events. Additionally, important user actions trigger both system notifications and email alerts. It also enforces strict access controls: users must be authenticated, and only authorized roles can perform specific actions. The interface is intuitive, mobile-friendly, and structured for ease of use.
 This prototype demonstrates key software engineering principles including MVC architecture, form validation, error handling, and modular design. The project also integrates version control using Git and follows Agile development practices to allow iterative collaboration among team members.
 ## Programming languages & Frameworks Used
 - Python 3.x  
